@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic structure in D3</title>
+    <!-- Let's include the D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div id="wh"></div>
+    <div class="firstPlot"></div>
+    <div class="secondPlot"></div>
+    <script>
+
+        // this is our example dataset
+        const data = [
+            { id:1, name:"first" },
+            { id:2, name:"second" },
+            { id:3, name:"third" },
+            { id:4, name:"fourth"}
+        ];
+
+        // simple function to get a specific size
+        const getCurrentSize = (sizeToRetrieve) => {
+            return sizeToRetrieve === "w"
+                ?   document.documentElement.clientWidth
+                :   document.documentElement.clientHeight
+        }
+
+        // select a div where we will append an SVG, then define the style and add some attributes
+        const svg1 = d3.select(".firstPlot")
+            .append("svg")
+            .style("background-color","#EEDFDE")
+            .attr("width",getCurrentSize("w")/2)
+            .attr("height",getCurrentSize("h")/2);
+        
+        // later it's possible to manipulate the element by adding more data (a rectangle for every item in the data array)
+        svg1.selectAll("rect")
+            .data(data)
+            .enter()
+                .append("rect")
+                .attr("x", (d,i) => 50 * i)
+                .attr("y", (d,i) => 10)
+                .attr("width", 50)
+                .attr("height", (d) => d.id * 100)
+                .style("fill", (d) => d.id % 2 === 0 ? "#5B0E2D":"#FFA781");
+
+        // same stuff for the second plot
+        const svg2 = d3.select(".secondPlot")
+            .append("svg")
+            .style("background-color", "#12A4D9")
+            .attr("width", getCurrentSize("w") * 1/3)
+            .attr("height", getCurrentSize("h") * 1/3);
+
+        // same stuff for the second plot with a different layout
+        svg2.append("circle")
+            .attr('cx', 50)
+            .attr('cy', 50)
+            .attr("r", 25)
+            .style("fill", "#e2d810");
+
+    </script>
+</body>
+</html>
