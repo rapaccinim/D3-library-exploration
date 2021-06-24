@@ -9,7 +9,8 @@ D3 is a powerful JS library that can be used to draw charts, graphs, treemaps, i
 
 ## My goal
 I started studying D3 because one of the project I'm working on requires an excellent and flexible library for rendering custom hierarchical trees/graphs and the [Cytoscape](https://js.cytoscape.org/) library is simple but limited.
+
 So, D3 is a more complex but far more advanced library to finally develop high-customized graphs.
 
 ## Special thanks
-Nicola Cerioli is helping me to understand deeply the library. I highly recommend this guy!
+[Nicola Cerioli](https://www.linkedin.com/in/nicola-cerioli-746bb6108) is helping me to understand deeply the library. I highly recommend [this guy](https://github.com/Nicolibus)!
